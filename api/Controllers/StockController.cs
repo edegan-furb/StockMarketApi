@@ -7,13 +7,13 @@ using api.Interfaces;
 
 namespace api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/stock")]
     [ApiController]
-    public class StocksController : ControllerBase
+    public class StockController : ControllerBase
     {
         private readonly ApplicationDBContext _context;
         private readonly IStockRepository _stockRepo;
-        public StocksController(ApplicationDBContext context, IStockRepository stockRepo)
+        public StockController(ApplicationDBContext context, IStockRepository stockRepo)
         {
             _stockRepo = stockRepo;
             _context = context;
