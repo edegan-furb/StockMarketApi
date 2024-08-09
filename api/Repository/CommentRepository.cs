@@ -45,7 +45,7 @@ public class CommentRepository : ICommentRepository
         return await _context.Comments.FindAsync(id);
     }
 
-    public async Task<Comment?> UpdateAsync(int id, UpdateCommentRequestDpo commentDto)
+    public async Task<Comment?> UpdateAsync(int id, UpdateCommentRequestDto commentDto)
     {
         var existingComment = await _context.Comments.FindAsync(id);
         if (existingComment == null)
