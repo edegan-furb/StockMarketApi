@@ -23,17 +23,11 @@ namespace api.Repository
 
         public async Task<Stock?> DeleteAsync(int id)
         {
-            var stockModel = await _context.Stocks.Include(s => s.Comments)
-                                         .FirstOrDefaultAsync(x => x.Id == id);
+            var stockModel = await _context.Stocks.FirstOrDefaultAsync(x => x.Id == id);
 
             if (stockModel == null)
             {
                 return null;
-            }
-
-            if (stockModel.Comments != null && stockModel.Comments.Count != 0)
-            {
-                _context.Comments.RemoveRange(stockModel.Comments);
             }
 
             _context.Stocks.Remove(stockModel);
